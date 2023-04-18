@@ -33,6 +33,11 @@ class Child : public Parent{
     Child(){
         std::cout<<"I am constructor of Child \n";
     }
+    Child(int p,int q){
+        c=p;
+        d=q;
+        std::cout<<"I am a parametrized constructor of Child \n";
+    }
     ~Child(){
         std::cout<<"I am a destructor of the Child \n";
     }
@@ -45,7 +50,7 @@ int main(){
     // Parent p3(100,200);
     
     Child c;
-    
+    Child c2(100,200);
     // p1.show();
     // p3.show();
     
