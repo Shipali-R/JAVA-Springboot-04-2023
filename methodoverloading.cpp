@@ -10,7 +10,9 @@ class Parent{
             std::cout<<"I am constructor of Parent.\n";
         }
 
-        void show(){
+        virtual void show(){
+            //In JAVA all funstions are by default virtual.
+            //Hence no problem of dynamic /runtime polymorphism.
             std::cout<<"This is a plain show of Parent\n";
         }
 
@@ -37,6 +39,22 @@ class Child: public Parent{
 int main (){
     Parent p;
     Child c;
+
+    //Object pointers
+    Parent *pt; //We can use the pointer object of parent class to invoke the child methods as well. 
+    Child *ch;
+
+    pt = &p;
+    pt->show(); //Invoking method through pointer of parent class.
+    pt = &c; //Using pointer of parent for Child object. 
+    //ch = &c;
+    ch->show(); //This will also override the parent show method.
+    pt->show(); //This should invoke child show method but it does not. It invokes parents show method.
+
+    //The virtual keyword makes sure that when we use parent pointer to call child's show method.
+    //It should call child's show method and this process of deciding that which method should be called.
+    //is taken at runtime by the compiler, hence this is runtime or dynamic polymorphism.
+
     std::cout<<"The size of the Parent object is " <<sizeof(p);
     std::cout<<"The size of the Child object is " <<sizeof(p);
     p.show();
