@@ -47,6 +47,8 @@ int main (){
     pt = &p;
     pt->show(); //Invoking method through pointer of parent class.
     pt = &c; //Using pointer of parent for Child object. 
+    //This is done for increasing the maintainability of the application.
+    //New feature addition becomes simpler.
     //ch = &c;
     ch->show(); //This will also override the parent show method.
     pt->show(); //This should invoke child show method but it does not. It invokes parents show method.
@@ -67,3 +69,10 @@ int main (){
 //Method overloading means functions with same name but different arguments.
 //Method overloading is an example of Static Polymorphism.
 //Polymorphism is ability to take more than one form.
+
+
+//Virtual 
+//When we use virtual keyword it creates a Virtual pointer table which stores the all the functions 
+//that are using virtual keyword.
+//It creates a pointer vtpr which is of size 8 bytes and hence when we use virtual keyword the size of the objects increases.
+//Both parent and child object increase bt 8 bytes.
