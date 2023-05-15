@@ -3,6 +3,9 @@ import java.io.IOException;
 public class Entry {
 	public static void main(String[] args) throws IOException {
 		
+		Menu menu = new Menu();
+		int ch= menu.showMenu();
+				
 		System.out.println("Please enter the first number");
 		int number1 = BasicInput.readInteger();
 		
@@ -10,8 +13,21 @@ public class Entry {
 		int number2 = BasicInput.readInteger();
 		
 		Maths m = new Maths();
-		m.add(number1, number2);
-		m.multiply(number1, number2);
+		
+		if (ch == 1) {
+			m.add(number1, number2);
+		}
+		else if (ch == 2) {
+			m.subtract(number1, number2);
+		}
+		else if (ch == 3) {
+			m.multiply(number1, number2);
+		}
+		else if (ch == 4) {
+			m.division(number1, number2);
+		}
+		
+		menu.thankU();
 		
 //		byte b[] = new byte[255];
 //		System.out.println("Please enter 1st number");
